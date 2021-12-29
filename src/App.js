@@ -3,7 +3,8 @@ import './App.css';
 import { GetCredentialsRequest } from './protos/credentials_pb'
 import { Client } from './api/ClientObj'
 import Navigation  from './components/navigation/Navigation';
-
+import AllRoutes from './routes/routes'
+import { BrowserRouter } from 'react-router-dom';
 class App extends Component {
   
   callGrpcService = () => {
@@ -25,9 +26,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
+        <BrowserRouter>
         <Navigation />
-          <button style={{padding:10}} onClick={this.callGrpcService}>Click for grpc request</button>
+          <AllRoutes />
+          </BrowserRouter>
               </div>
     );
   }
