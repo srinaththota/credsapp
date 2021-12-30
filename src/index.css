@@ -12,7 +12,7 @@ body {
 
 button {
   font: inherit;
-  background: #ff2058;
+  background: #7a686d;
   padding: 0.5rem 2rem;
   color: white;
   border: 1px solid #ff2058;
@@ -24,7 +24,7 @@ button {
 button:hover,
 button:active {
   background: white;
-  color: #ff2058;
+  color: #492931;
 }
 
 button:focus {

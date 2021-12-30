@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector , useDispatch } from 'react-redux'
 import { getCredsAction } from '../../store/actions'
 import Card from "../../components/card/Card";
+import classes from './Credentials.module.css'
 const CredentialsList = ()=>{
 const [data,setData]=useState({
     userid:'',
@@ -44,17 +45,26 @@ const afterHandler=e=>{
        )
    });
     return(
-        <>
-        <button onClick={()=>setOpen(true)}>Add details</button>
+        <div className={classes.align}>
+       {!open && <button onClick={()=>setOpen(!open)}>Add details</button>}
+        <div>
        {open? <Card>
-            <input type="text" placeholder="userid" value={data.userid} onChange={userIdHandler} /> <br />
-            <input type="text" placeholder="limit" value={data.limit} onChange={limitHandler} /> <br />
-            <input type="text" placeholder="after" value={data.after} onChange={afterHandler} /> <br />
+           <div>
+            <input type="text" placeholder="userid" value={data.userid} onChange={userIdHandler} /> 
+            </div>
+            <div>
+            <input type="text" placeholder="limit" value={data.limit} onChange={limitHandler} />
+            </div>
+            <div>
+            <input type="text" placeholder="after" value={data.after} onChange={afterHandler} /> 
+            </div>
+            <div>
             <button onClick={()=>listCreds(data)}>list here</button>
+            </div>
         </Card>:null}
-        
-        *{result}*
-        </>
+        </div>
+        {!open && result}
+        </div>
     )
     }
     
