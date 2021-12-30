@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes'
 import { createStore, applyMiddleware } from 'redux'
 import ReduxThunk from 'redux-thunk'
 let globalState ={
-credentials:[{}]
+credentials:[{id:200}]
 } 
 
 const credReducer = (state=globalState,action) => {

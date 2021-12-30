@@ -9,13 +9,13 @@ import Welcome from "../pages/Welcome";
   const AllRoutes= props =>{
       return(
         <>
-              <SimpleRoute path="/add" exact>
+              <SimpleRoute exact path="/add" >
                   <AddCredentials />
               </SimpleRoute>
-              <SimpleRoute path="/list" exact>
+              <SimpleRoute exact path="/list" >
                   <CredentialsList />
               </SimpleRoute>
-              <SimpleRoute path="/" exact>
+              <SimpleRoute exact path="/">
                   <Welcome />
               </SimpleRoute>
         </> 
