@@ -21,9 +21,9 @@ static_resources:
             - name: local_service
               domains: ["*"]
               routes:
-              - match: { prefix: "/io.iohk" }
+              - match: { prefix: "/" }
                 route:
-                  cluster: ping_pong_service
+                  cluster: test_service
                   max_grpc_timeout: 0s
               cors:
                 allow_origin_string_match:
@@ -35,7 +35,7 @@ static_resources:
           - name: envoy.filters.http.cors
           - name: envoy.filters.http.router
   clusters:
-  - name: ping_pong_service
+  - name: test_service
     connect_timeout: 0.25s
     type: logical_dns
     http2_protocol_options: {}
@@ -48,4 +48,4 @@ static_resources:
             address:
               socket_address:
                 address: host.docker.internal
-                port_value: 8080
+                port_value: 50051

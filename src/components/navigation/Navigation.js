@@ -14,10 +14,6 @@ const Navigation = props => {
           <li>
             <Link to="/list" >List Credentials of User</Link>
           </li>
-          <li>
-            <Link to="/add" exact>Add Credentials</Link>
-          </li>
-          
         </ul>
       </nav>
     </header>

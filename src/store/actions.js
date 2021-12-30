@@ -11,9 +11,10 @@ export const getCredsAction = data =>{
                     request.setAfter(data.after)
                     Client.getCredentials(request, {}, (err, response) => {
                     if (response == null) {
+                      console.log(err.message)
                         dispatch({
                             type:actionTypes.ERROR,
-                            payload:"ERROR"
+                            payload:err.message
 
                           })
                     }else {
@@ -36,7 +37,13 @@ export const getCredsAction = data =>{
     }
 }
 
-
+export const resetErrorAction = ()=>{
+  return  dispatch => {
+    dispatch({
+      type:actionTypes.ERROR
+    })
+  }
+}
 
 
 

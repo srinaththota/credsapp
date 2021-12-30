@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector , useDispatch } from 'react-redux'
-import { getCredsAction } from '../../store/actions'
+import { getCredsAction , resetErrorAction} from '../../store/actions'
 import Card from "../../components/card/Card";
 import classes from './Credentials.module.css'
 const CredentialsList = ()=>{
@@ -10,7 +10,9 @@ const [data,setData]=useState({
     after:''
 })
 const [open,setOpen]=useState(true)
+
    const credentials=useSelector(state => state.credentials)
+   const errorMessage=useSelector(state => state.ERROR)
    const dispatch = useDispatch();
 
    const listCreds= (data)=>{
@@ -44,26 +46,29 @@ const afterHandler=e=>{
        </ul>
        )
    });
+   const resetHandler = ()=>{
+    setOpen(!open)
+    dispatch(resetErrorAction())
+   }
+
+   const errorResult=errorMessage?errorMessage:null
     return(
         <div className={classes.align}>
-       {!open && <button onClick={()=>setOpen(!open)}>Add details</button>}
+       {!open && <button onClick={resetHandler}>Add details</button>}
         <div>
-       {open? <Card>
-           <div>
+       {open? <Card className={classes.input}>
+           
             <input type="text" placeholder="userid" value={data.userid} onChange={userIdHandler} /> 
-            </div>
-            <div>
             <input type="text" placeholder="limit" value={data.limit} onChange={limitHandler} />
-            </div>
-            <div>
             <input type="text" placeholder="after" value={data.after} onChange={afterHandler} /> 
-            </div>
+           
             <div>
             <button onClick={()=>listCreds(data)}>list here</button>
             </div>
         </Card>:null}
         </div>
-        {!open && result}
+        {!open && !errorResult && result}
+        <h1>{errorResult}</h1>
         </div>
     )
     }
