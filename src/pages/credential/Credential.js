@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../../components/card/Card';
 const Credential = props =>{
     return(
-<Card style={{ marginBottom: '1rem' }}>
+<Card style={{ marginBottom: '0.2 rem' }}>
       
         <h2>{props.title}</h2>
         <p>{props.id}</p>
