@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for credentials
+ * @fileoverview gRPC-Web generated client stub for io.iohk.test.protos
  * @enhanceable
  * @public
  */
@@ -16,7 +16,10 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 const proto = {};
-proto.credentials = require('./credentials_pb.js');
+proto.io = {};
+proto.io.iohk = {};
+proto.io.iohk.test = {};
+proto.io.iohk.test.protos = require('./credentials_pb.js');
 
 /**
  * @param {string} hostname
@@ -26,7 +29,7 @@ proto.credentials = require('./credentials_pb.js');
  * @struct
  * @final
  */
-proto.credentials.CredentialsServiceClient =
+proto.io.iohk.test.protos.CredentialsServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -52,7 +55,7 @@ proto.credentials.CredentialsServiceClient =
  * @struct
  * @final
  */
-proto.credentials.CredentialsServicePromiseClient =
+proto.io.iohk.test.protos.CredentialsServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -73,39 +76,39 @@ proto.credentials.CredentialsServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.credentials.GetCredentialsRequest,
- *   !proto.credentials.GetCredentialsResponse>}
+ *   !proto.io.iohk.test.protos.GetCredentialsRequest,
+ *   !proto.io.iohk.test.protos.GetCredentialsResponse>}
  */
 const methodDescriptor_CredentialsService_GetCredentials = new grpc.web.MethodDescriptor(
-  '/credentials.CredentialsService/GetCredentials',
+  '/io.iohk.test.protos.CredentialsService/GetCredentials',
   grpc.web.MethodType.UNARY,
-  proto.credentials.GetCredentialsRequest,
-  proto.credentials.GetCredentialsResponse,
+  proto.io.iohk.test.protos.GetCredentialsRequest,
+  proto.io.iohk.test.protos.GetCredentialsResponse,
   /**
-   * @param {!proto.credentials.GetCredentialsRequest} request
+   * @param {!proto.io.iohk.test.protos.GetCredentialsRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.credentials.GetCredentialsResponse.deserializeBinary
+  proto.io.iohk.test.protos.GetCredentialsResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.credentials.GetCredentialsRequest} request The
+ * @param {!proto.io.iohk.test.protos.GetCredentialsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.credentials.GetCredentialsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.io.iohk.test.protos.GetCredentialsResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.credentials.GetCredentialsResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.io.iohk.test.protos.GetCredentialsResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.credentials.CredentialsServiceClient.prototype.getCredentials =
+proto.io.iohk.test.protos.CredentialsServiceClient.prototype.getCredentials =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/credentials.CredentialsService/GetCredentials',
+      '/io.iohk.test.protos.CredentialsService/GetCredentials',
       request,
       metadata || {},
       methodDescriptor_CredentialsService_GetCredentials,
@@ -114,22 +117,22 @@ proto.credentials.CredentialsServiceClient.prototype.getCredentials =
 
 
 /**
- * @param {!proto.credentials.GetCredentialsRequest} request The
+ * @param {!proto.io.iohk.test.protos.GetCredentialsRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.credentials.GetCredentialsResponse>}
+ * @return {!Promise<!proto.io.iohk.test.protos.GetCredentialsResponse>}
  *     Promise that resolves to the response
  */
-proto.credentials.CredentialsServicePromiseClient.prototype.getCredentials =
+proto.io.iohk.test.protos.CredentialsServicePromiseClient.prototype.getCredentials =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/credentials.CredentialsService/GetCredentials',
+      '/io.iohk.test.protos.CredentialsService/GetCredentials',
       request,
       metadata || {},
       methodDescriptor_CredentialsService_GetCredentials);
 };
 
 
-module.exports = proto.credentials;
+module.exports = proto.io.iohk.test.protos;
 

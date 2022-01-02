@@ -6,7 +6,7 @@ export const getCredsAction = data =>{
     return async dispatch => {
             try{
                     const request=new GetCredentialsRequest();
-                    request.setUserid(data.userId);
+                    request.setUserid(data.userid);
                     request.setLimit(data.limit)
                     request.setAfter(data.after)
                     Client.getCredentials(request, {}, (err, response) => {
