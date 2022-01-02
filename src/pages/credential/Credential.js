@@ -1,8 +1,9 @@
 import React from 'react'
 import Card from '../../components/card/Card';
+import  classes  from './Credential.module.css'
 const Credential = props =>{
     return(
-<Card style={{ marginBottom: '0.2 rem' }}>
+<Card className={classes.input}>
       
         <h2>{props.title}</h2>
         <p>{props.id}</p>
