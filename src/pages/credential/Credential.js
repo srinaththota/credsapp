@@ -7,6 +7,7 @@ const Credential = props =>{
       
         <h2>{props.title}</h2>
         <p>{props.id}</p>
+        <p>{props.subject}</p>
         <p>{props.issuer}</p>
         <p>{props.issuedOn}</p>
     </Card>

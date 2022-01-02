@@ -48,6 +48,7 @@ const afterHandler=e=>{
        return ( <Credential key={Math.random() * 10000}
         id={obj.array[id]}
         issuedOn={obj.array[issuedOn]}
+        subject={obj.array[subject]}
         issuer={obj.array[issuer]}
         title={obj.array[title]} />   
        )
