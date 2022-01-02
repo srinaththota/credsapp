@@ -20,7 +20,6 @@ export const getCredsAction = data =>{
                     }else {
                       console.log("no errors")
                       console.log(response.getCredentialsList())
-                      console.log(response)
                     dispatch({
                             type:actionTypes.GET_CREDENTIALS,
                             payload:response.getCredentialsList()

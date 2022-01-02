@@ -11,7 +11,8 @@ const [data,setData]=useState({
 })
 const [open,setOpen]=useState(true)
 
-   const credentials=useSelector(state => state.credentials)
+   const credentials=useSelector(state => state.creds)
+   console.log(credentials)
    const errorMessage=useSelector(state => state.ERROR)
    const dispatch = useDispatch();
 
@@ -40,12 +41,19 @@ const afterHandler=e=>{
     newData.after=e.target.value
     setData(newData);
 }
-   const result = !credentials?null:credentials.map(obj=>{
+   const result = credentials?credentials.map((obj,i)=>{
+
+       const [id,issuedOn,subject,issuer,title] = [0,1,2,3,4]
        return ( <ul key={Math.random() * 10000}>
-            <li >{obj.id}</li>
+            <li >{obj.array[id]}</li>
+            <li >{obj.array[issuedOn]}</li>
+            <li >{obj.array[subject]}</li>
+            <li >{obj.array[issuer]}</li>
+            <li >{obj.array[title]}</li>
+            
        </ul>
        )
-   });
+   }):null
    const resetHandler = ()=>{
     setOpen(!open)
     dispatch(resetErrorAction())

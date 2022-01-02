@@ -1,17 +1,17 @@
 import * as actionTypes from './actionTypes'
-import { createStore, applyMiddleware } from 'redux'
-import ReduxThunk from 'redux-thunk'
-let globalState ={
-credentials:[{id:200}],
-ERROR:null
+
+const globalState ={
+    creds:[],
+    ERROR:null
 } 
 
-const credReducer = (state=globalState,action) => {
+export const credReducer = (state=globalState,action) => {
     console.log(action)
     if(action.type===actionTypes.GET_CREDENTIALS){
+        console.log(action.payload)
         return {
             ...state,
-            credentials:action.payload.credentails
+            creds:action.payload
         }
     }
     if(action.type===actionTypes.ERROR){
@@ -29,7 +29,4 @@ const credReducer = (state=globalState,action) => {
     return state
 }
 
-const store=createStore(credReducer, applyMiddleware(ReduxThunk));
-
-export default store;
 
