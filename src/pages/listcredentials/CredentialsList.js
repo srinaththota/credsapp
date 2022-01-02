@@ -3,6 +3,7 @@ import { useSelector , useDispatch } from 'react-redux'
 import { getCredsAction , resetErrorAction} from '../../store/actions'
 import Card from "../../components/card/Card";
 import classes from './Credentials.module.css'
+import Credential from "../credential/Credential";
 const CredentialsList = ()=>{
 const [data,setData]=useState({
     userid:'',
@@ -44,14 +45,11 @@ const afterHandler=e=>{
    const result = credentials?credentials.map((obj,i)=>{
 
        const [id,issuedOn,subject,issuer,title] = [0,1,2,3,4]
-       return ( <ul key={Math.random() * 10000}>
-            <li >{obj.array[id]}</li>
-            <li >{obj.array[issuedOn]}</li>
-            <li >{obj.array[subject]}</li>
-            <li >{obj.array[issuer]}</li>
-            <li >{obj.array[title]}</li>
-            
-       </ul>
+       return ( <Credential key={Math.random() * 10000}
+        id={obj.array[id]}
+        issuedOn={obj.array[issuedOn]}
+        issuer={obj.array[issuer]}
+        title={obj.array[title]} />   
        )
    }):null
    const resetHandler = ()=>{
