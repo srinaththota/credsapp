@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector , useDispatch } from 'react-redux'
-import { getCredsAction , resetErrorAction} from '../../store/actions'
+import { getCredsAction , resetErrorAction, getAllCredsAction} from '../../store/actions'
 import Card from "../../components/card/Card";
 import classes from './Credentials.module.css'
 import Credential from "../credential/Credential";
@@ -27,6 +27,15 @@ const [open,setOpen]=useState(true)
     setOpen(false)
    }
 
+   const listAllCreds= (data)=>{
+    dispatch(getAllCredsAction(data))
+    setData({
+     userid:'',
+     limit:'',
+     after:''
+ })
+ setOpen(false)
+}
    const userIdHandler=e=>{
        const newData={...data}
        newData.userid=e.target.value
@@ -71,6 +80,7 @@ const afterHandler=e=>{
            
             <div>
             <button onClick={()=>listCreds(data)}>list here</button>
+            <button onClick={()=>listAllCreds(data)}>list ALL here</button>
             </div>
         </Card>:null}
         </div>

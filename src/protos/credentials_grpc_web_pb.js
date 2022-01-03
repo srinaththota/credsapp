@@ -134,5 +134,66 @@ proto.io.iohk.test.protos.CredentialsServicePromiseClient.prototype.getCredentia
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.io.iohk.test.protos.GetCredentialsRequest,
+ *   !proto.io.iohk.test.protos.GetUsersResponse>}
+ */
+const methodDescriptor_CredentialsService_getUsers = new grpc.web.MethodDescriptor(
+  '/io.iohk.test.protos.CredentialsService/getUsers',
+  grpc.web.MethodType.UNARY,
+  proto.io.iohk.test.protos.GetCredentialsRequest,
+  proto.io.iohk.test.protos.GetUsersResponse,
+  /**
+   * @param {!proto.io.iohk.test.protos.GetCredentialsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.io.iohk.test.protos.GetUsersResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.io.iohk.test.protos.GetCredentialsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.io.iohk.test.protos.GetUsersResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.io.iohk.test.protos.GetUsersResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.io.iohk.test.protos.CredentialsServiceClient.prototype.getUsers =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/io.iohk.test.protos.CredentialsService/getUsers',
+      request,
+      metadata || {},
+      methodDescriptor_CredentialsService_getUsers,
+      callback);
+};
+
+
+/**
+ * @param {!proto.io.iohk.test.protos.GetCredentialsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.io.iohk.test.protos.GetUsersResponse>}
+ *     Promise that resolves to the response
+ */
+proto.io.iohk.test.protos.CredentialsServicePromiseClient.prototype.getUsers =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/io.iohk.test.protos.CredentialsService/getUsers',
+      request,
+      metadata || {},
+      methodDescriptor_CredentialsService_getUsers);
+};
+
+
 module.exports = proto.io.iohk.test.protos;
 
