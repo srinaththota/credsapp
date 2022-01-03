@@ -9,7 +9,6 @@ import { credReducer } from './store/reducer'
 
 const Store=createStore(credReducer,compose(applyMiddleware(ReduxThunk)));
 
-export default Store;
 ReactDOM.render(
   <React.StrictMode>
     
